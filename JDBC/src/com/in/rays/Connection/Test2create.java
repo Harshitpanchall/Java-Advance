@@ -2,12 +2,10 @@ package com.in.rays.Connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.sql.Statement;
 
-public class TestDelete {
-	
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+public class Test2create {
+	public static void main(String[] args) throws Exception {
 		
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		
@@ -15,8 +13,9 @@ public class TestDelete {
 		
 		Statement stmt = conn.createStatement();
 		
-		int i = stmt.executeUpdate("delete from Person1 where id = 3");
-		System.out.println(i + "deleted the row");
+		int i = stmt.executeUpdate("update employee set name = 'rohit' , lastname = 'shrama' , city = 'rewa' where id = 1");
+		
+		System.out.println(i + "all record saved");
 		
 		conn.close();
 		stmt.close();

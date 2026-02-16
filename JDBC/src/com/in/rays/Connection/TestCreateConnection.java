@@ -6,30 +6,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class TestConnection {
+public class TestCreateConnection {
+	
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		
-		///load driver is class
 		
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		
-		// Drivermanager connection
-		
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays","root","root");
-		System.out.println("mqsql is connected the and sucessfully run ");
+		System.out.println("mysql is connected and ducessfully updated");
 		
 		Statement stmt = conn.createStatement();
 		
-		ResultSet rs = stmt.executeQuery("select * from person");
-		
-		while(rs.next()) {
-			
-			System.out.print("id : " + rs.getInt(1));
-			System.out.print("name : " + rs.getString(2));
-			System.out.println("roll : " + rs.getInt(3));
-		}
+		int i= stmt.executeUpdate("create table Person1(id int primary key, name varchar(45), city varchar(45), number int)");
+		System.out.println(i + "table is create");
 		conn.close();
 		stmt.close();
+		
 	}
 
 }

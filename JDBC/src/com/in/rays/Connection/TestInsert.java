@@ -5,20 +5,22 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class TestUpdate {
+public class TestInsert {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays","root","root");
 		
+		///Ye SQL query run karne ke liye object banata hai.
 		Statement stmt = conn.createStatement();
 		
-		int i = stmt.executeUpdate("update Person1 set name = 'suraj', city = 'mumbai', number = 65445654 where id = 4");
-		System.out.println(i + "update all record : (save record)");
+		int i = stmt.executeUpdate("insert into Person1 values(1,'uday','odisha',98343435),(2,'rohan','rewa',56767876)");
+		System.out.println(i + "insert table");
 		
 		conn.close();
 		stmt.close();
+		
 		
 		
 		
