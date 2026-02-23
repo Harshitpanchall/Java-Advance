@@ -3,8 +3,8 @@ package com.in.rays.PreparedStatemet.Add.Update.Delete.Insert;
 public class TestaPersonModel {
 	public static void main(String[] args) throws Exception {
 		
-		testadd();
-//		testupdate();
+//		testadd();
+		testupdate();
 		
 	}
 

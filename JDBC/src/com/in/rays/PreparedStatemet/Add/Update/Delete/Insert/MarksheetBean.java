@@ -2,8 +2,8 @@ package com.in.rays.PreparedStatemet.Add.Update.Delete.Insert;
 
 public class MarksheetBean {
 	private int id;
-	private String name;
 	private int roll;
+	private String name;
 	private int maths;
 	private int phy;
 	private int hin;
@@ -18,6 +18,15 @@ public class MarksheetBean {
 		
 	}
 	
+	public int getRoll() {
+		return roll;
+	}
+	
+	public void setRoll(int roll) {
+		this.roll = roll;
+		
+	}
+	
 	public String getName() {
 		return name;
 		
@@ -25,16 +34,6 @@ public class MarksheetBean {
 	
 	public void setName(String name) {
 		this.name = name;
-		
-	}
-	
-	public int getRoll() {
-		return roll;
-		
-	}
-	
-	public void setRoll(int roll) {
-		this.roll = roll;
 	}
 	
 	public int getMaths() {
@@ -64,6 +63,11 @@ public class MarksheetBean {
 	
 	public void setHin(int hin) {
 		this.hin = hin;
+		
 	}
+		
+	
+	
+
 
 }

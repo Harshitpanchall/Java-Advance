@@ -8,8 +8,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 public class PersonModel {
+	ResourceBundle rs = ResourceBundle.getBundle("com.in.rays.bundle.app");	
+	String driver = rs.getString("driver");
+	String url = rs.getString("url");
+	String user = rs.getString("user");
+	String password = rs.getString("password");
+	
 	public int add(PersonBean bean) throws Exception {
 
 		PersonBean existsBean = findByLogin(bean.getLogin());
@@ -17,8 +24,8 @@ public class PersonModel {
 			throw new Exception("already is email is exits ");
 		}
 
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
+		Class.forName(driver);
+		Connection conn = DriverManager.getConnection(url,user,password);
 
 		PreparedStatement ps = conn.prepareStatement("insert into person values(?,?,?,?,?,?,?)");
 
