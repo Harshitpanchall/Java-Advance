@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<h1>Hello Harshit ji...</h1>
+	</div>
+	<div>
+		<h2>Hello Harshit ji...</h2>
+	</div>
+
+	<div>
+		<h3>Hello Harshit ji...</h3>
+	</div>
+
+	<div>
+		<h4>Hello Harshit ji...</h4>
+	</div>
+	<div>
+		<h5>Hello Harshit ji...</h5>
+	</div>
+	
+	<marquee>welcome to harshit</marquee>
+	<h1 align-center = left>hello worlda</h1>
+	
+
+</body>
+</html>
