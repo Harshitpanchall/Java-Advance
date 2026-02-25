@@ -85,8 +85,6 @@ public class TestMarksheetModel {
 		MarksheetModel model = new MarksheetModel();
 		model.update(bean);
 		
-		
-		
 	}
 
 	private static void testadd() throws Exception {

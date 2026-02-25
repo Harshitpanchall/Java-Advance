@@ -87,6 +87,7 @@ public class EmployeeModel {
 		EmployeeBean bean = null;
 
 		while (rs.next()) {
+			bean = new EmployeeBean();
 			bean.setId(rs.getInt(1));
 			bean.setName(rs.getString(2));
 			bean.setLastname(rs.getString(3));
