@@ -28,7 +28,7 @@ public class UserModel {
 
 	}
 
-	public void update(UserBean bean) throws ClassNotFoundException, SQLException {
+	public void update(UserBean bean) throws Exception {
 		Connection conn = JdbcDataSource.getConnection();
 		PreparedStatement ps = conn
 				.prepareStatement("update employee set name = ?, lastname = ?, city = ? where id = ?");
@@ -45,7 +45,7 @@ public class UserModel {
 
 	}
 
-	public void delete(UserBean bean) throws ClassNotFoundException, SQLException {
+	public void delete(UserBean bean) throws Exception {
 		Connection conn = JdbcDataSource.getConnection();
 		PreparedStatement ps = conn.prepareStatement("delete from employee where id = ?");
 

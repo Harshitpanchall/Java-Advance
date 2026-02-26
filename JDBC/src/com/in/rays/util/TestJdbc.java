@@ -1,6 +1,7 @@
 package com.in.rays.util;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -10,10 +11,9 @@ public class TestJdbc {
 	
 	public static void main(String[] args) {
 		
-		for(int i = 1; i <= 10; i++) {
-			
+		for(int i = 1; i <= 1000; i++) {
 			testsearch();
-			System.out.println("Connection" + i);
+			System.out.println("connection " + i);
 		}
 	}
 
@@ -21,17 +21,19 @@ public class TestJdbc {
 		Connection conn = null;
 		try {
 			conn = JdbcDataSource.getConnection();
-			Statement stmt = conn.createStatement();
-			ResultSet rs =  stmt.executeQuery("select * from st_user where id = 1");
-			
-			while(rs.next()) {
-				System.out.println("id" + rs.getInt(1));
-				System.out.println("fastname:" + rs.getString(2));
-			}
-			}catch(Exception e) {
-				e.getMessage();
-			}
-			
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("select * from marksheet where id = 1");
 		
-	}
+		while(rs.next()) {
+			System.out.println("id:" + rs.getInt(1));
+			System.out.println("name :" + rs.getString(2));
+			System.out.println("roll" + rs.getInt(3));
+			
+		}
+		}catch(Exception e) {
+			e.getMessage();
+		
+	
+		}
+		}
 }
