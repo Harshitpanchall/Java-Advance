@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>ORS Project</title>
+<title>ORS-Project</title>
 </head>
-<body>
+<body style="background-color: black;">
+	<br>
+	<br>
 	<br>
 	<br>
 	<br>
@@ -17,7 +19,7 @@
 	<br>
 	<br>
 	<div align="center">
-			<h1 style="background-color:black; padding: 100px;">
+			<h1>
 				<a href="Welcome.jsp" style="color:red;">Online Result System</a>
 			</h1>
 

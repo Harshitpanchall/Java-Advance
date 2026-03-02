@@ -8,28 +8,57 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.rowset.serial.SQLOutputImpl;
+import javax.servlet.http.HttpSession;
+
+import com.in.rays.bean.UserBean;
+import com.in.rays.model.UserModel;
 
 @WebServlet("/LoginCtl")
-public class LoginCtl extends HttpServlet{
+public class LoginCtl extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		String op = req.getParameter("operation");
+
+		if (op != null) {
+			HttpSession session = req.getSession();
+			req.setAttribute("sucessMsg", "sucessfull login");
+			session.invalidate();
+		}
+
 		RequestDispatcher rb = req.getRequestDispatcher("LoginView.jsp");
 		rb.forward(req, resp);
 	}
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id = req.getParameter("id");
-		String password = req.getParameter("password");
-				
-	      System.out.println(id);
-		System.out.println(password);
-		System.out.println("login page is run");
-		
-		RequestDispatcher rb = req.getRequestDispatcher("LoginView.jsp");
-		rb.forward(req, resp);
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		UserModel model = new UserModel();
+		UserBean bean = new UserBean();
+
+		String Login = request.getParameter("Login");
+		String password = request.getParameter("password");
+
+		HttpSession session = request.getSession();
+
+		try {
+			bean = model.authenticate(Login, password);
+
+			if (bean != null) {
+				System.out.println("user login successfully");
+				session.setAttribute("user", bean);
+				response.sendRedirect("WelcomeCtl");
+				return;
+			} else {
+				request.setAttribute("errorMsg", "invalid login or password");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		RequestDispatcher rd = request.getRequestDispatcher("LoginView.jsp");
+		rd.forward(request, response);
+
 	}
 
 }

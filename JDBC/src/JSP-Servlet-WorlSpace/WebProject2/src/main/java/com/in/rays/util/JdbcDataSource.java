@@ -11,7 +11,7 @@ public final class JdbcDataSource {
 
 	private static ComboPooledDataSource cpds = null;
 
-	private static ResourceBundle rb = ResourceBundle.getBundle("com.in.rays.system");
+	private static ResourceBundle rb = ResourceBundle.getBundle("com.in.rays.bundle.system");
 
 	private JdbcDataSource() {
 		try {

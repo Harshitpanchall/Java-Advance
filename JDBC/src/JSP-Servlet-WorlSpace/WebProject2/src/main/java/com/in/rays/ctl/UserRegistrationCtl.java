@@ -18,41 +18,42 @@ import com.in.rays.model.UserModel;
 public class UserRegistrationCtl extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rb = req.getRequestDispatcher("UserRegistrationView.jsp");
-		rb.forward(req, resp);
+	protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+		RequestDispatcher rb = request.getRequestDispatcher("UserRegistrationView.jsp");
+		rb.forward(request, resp);
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("do post is sucessfully console printed");
 
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		UserBean bean = new UserBean();
 		UserModel model = new UserModel();
-
-		String firstname = req.getParameter("firstname");
-		String lastname = req.getParameter("lastname");
-		String login = req.getParameter("login");
-		String password = req.getParameter("password");
-		String dob = req.getParameter("dob");
+        
+	
+		String firstname = request.getParameter("firstname");
+		String lastname = request.getParameter("lastname");
+		String login = request.getParameter("login");
+		String password = request.getParameter("password");
+		String dob = request.getParameter("dob");
 
 		try {
-			bean.setId(6);
 			bean.setFirstname(firstname);
 			bean.setLastname(lastname);
 			bean.setLogin(login);
 			bean.setPassword(password);
-			bean.setDob(sdf.parse(dob));
+		     bean.setDob(sdf.parse(dob));	
 			
 			model.add(bean);
+			request.setAttribute("SuccessMsg","userRegistration sucessfully");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			request.setAttribute("errorMsg", e.getMessage());
 			e.printStackTrace();
 		}
 
-		RequestDispatcher rb = req.getRequestDispatcher("UserRegistrationView.jsp");
-		rb.forward(req, resp);
+		RequestDispatcher rb = request.getRequestDispatcher("UserRegistrationView.jsp");
+		rb.forward(request, resp);
 
 	}
 

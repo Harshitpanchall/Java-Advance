@@ -4,51 +4,56 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Login</title>
-
-<style>
-.footer {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	text-align: center;
-	background-color: black;
-	padding: 10px;
-}
-</style>
+<title>Login Page</title>
 </head>
-
 <body>
-	<%@include file="Header.jsp"%>
+	<%
+	String smsg = (String) request.getAttribute("successMsg");
+	String errorMsg = (String) request.getAttribute("errorMsg");
+	%>
+	<%@ include file="Header.jsp"%>
+	<div align="center">
+		<h1 style= "color: red">Login</h1>
 
-	
-	<div align = "center">
-	<h1 style="color:red;">Login Id</h1>
-	<form action="LoginCtl" method = "post">
-	<table>
-			<tr>
-				<th>id</th>
-				<td><input type="email" value="" name="id" placeholder="enter id"></td>
-			</tr>
+		<%
+		if (smsg != null) {
+		%>
+		<h3 style="color: green"><%=smsg%></h3>
+		<%
+		}
+		%>
 
-			<tr>
-				<th>password</th>
-				<td><input type="password" value="" name="password"
-					placeholder="enter password"></td>
-			</tr>
-			
-			<tr>
-			<th></th>
-			<td><input type ="submit" value = "save"></td>
-			</tr>
+		<%
+		if (errorMsg != null) {
+		%>
+		<h3 style="color: red"><%=errorMsg%></h3>
+		<%
+		}
+		%>
 
-		</table>
-		</div>
+		<form action="LoginCtl" method="post">
+
+			<table>
+				<tr>
+					<th>Login:</th>
+					<td><input type="email" name="Login" value=""
+						placeholder="enter your login"></td>
+				</tr>
+				<tr>
+					<th>Password:</th>
+					<td><input type="password" name="password" value=""
+						placeholder="enter your password"></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td><input type="submit" name="login" value="signIn">
+				</tr>
+
+			</table>
+
 		</form>
 
-	<div class="footer">
-		<%@ include file="Footer.jsp"%>
 	</div>
-
+	<%@ include file="Footer.jsp"%>
 </body>
 </html>

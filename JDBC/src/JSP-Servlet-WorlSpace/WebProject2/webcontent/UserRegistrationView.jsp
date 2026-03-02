@@ -4,67 +4,66 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Signup</title>
-
-<style>
-
-.footer {
-position: fixed;
-bottom: 0;
-width: 100%;
-text-align: center;
-background-color: black;
-padding:10px;
-	
-}
-</style>
+<title>Signin</title>
 </head>
 <body>
 	<%@ include file="Header.jsp"%>
+	<%
+	String smsg = (String) request.getAttribute("SuccessMsg");
+	String emsg = (String) request.getAttribute("errorMsg");
+	%>
+
+
 	<div align="center">
-		<h1 style="color:red;">User Registration</h1>
-		</div>
+		<h1 style="color: red">User Registration</h1>
 		
-		<div align="center">
+		<h3 style="color: green"><%=smsg != null ? smsg : ""%></h3>
+		<h3 style="color: red"><%=emsg != null ? emsg : ""%></h3>
+		
 		<form action="UserRegistrationCtl" method="post">
-		
-		<table>
-		
-		<tr>
-		<th>firstname</th>
-		<td><input type="text" value ="" name="firstname" placeholder="enter firstname"></td>
-		</tr>
-		
-		<tr>
-		<th>lastname</th>
-		<td><input type="text" value ="" name="lastname" placeholder="enter lastname"></td>
-		</tr>
-		
-		<tr>
-		<th>login</th>
-		<td><input type="email" value ="" name="login" placeholder="login id"></td>
-		</tr>
-		
-		<tr>
-		<th>password</th>
-		<td><input type="password" value ="" name="password" placeholder="password"></td>
-		</tr>
-		
-		<tr>
-		<th>dob</th>
-		<td><input type="date" value ="" name="dob" style="width:97%;"></td>
-		</tr>
-		
-		<tr>
-		<th></th>
-		<td><input type="submit" value ="save" name="signup"></td>
-		</tr>
-		
-		</table>
+
+			<table>
+
+				<tr>
+					<th>firstname</th>
+					<td><input type="text" value="" name="firstname"
+						placeholder="enter firstname"></td>
+				</tr>
+
+				<tr>
+					<th>lastname</th>
+					<td><input type="text" value="" name="lastname"
+						placeholder="enter lastname"></td>
+				</tr>
+
+				<tr>
+					<th>login</th>
+					<td><input type="email" value="" name="login"
+						placeholder="login id"></td>
+				</tr>
+
+				<tr>
+					<th>password</th>
+					<td><input type="password" value="" name="password"
+						placeholder="password"></td>
+				</tr>
+
+				<tr>
+					<th>dob</th>
+					<td><input type="date" value="" name="dob" style="width: 97%;"></td>
+				</tr>
+
+				<tr>
+					<th></th>
+					<td><input type="submit" value="register" name="signup"></td>
+				</tr>
+
+			</table>
 		</form>
-		</div>
-		<div class="footer">
+	</div>
+
+	<div>
 		<%@ include file="Footer.jsp"%>
-		</div>
+	</div>
 </body>
 </html>
