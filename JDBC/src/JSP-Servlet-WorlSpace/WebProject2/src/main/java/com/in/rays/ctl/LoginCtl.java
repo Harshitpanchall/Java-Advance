@@ -15,14 +15,15 @@ import com.in.rays.model.UserModel;
 
 @WebServlet("/LoginCtl")
 public class LoginCtl extends HttpServlet {
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String op = req.getParameter("operation");
 
 		if (op != null) {
 			HttpSession session = req.getSession();
-			req.setAttribute("sucessMsg", "sucessfull login");
 			session.invalidate();
+			req.setAttribute("sucessMsg", "sucessfull login");
 		}
 
 		RequestDispatcher rb = req.getRequestDispatcher("LoginView.jsp");

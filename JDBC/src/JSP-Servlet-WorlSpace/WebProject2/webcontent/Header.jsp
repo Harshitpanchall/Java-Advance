@@ -19,6 +19,8 @@
 	%>
 
 	<h3 style="color: green;"><%="Hii, " + userBean.getFirstname()%></h3>
+	<a href = "UserCtl">AddUser</a>
+	<a href = "UserListCtl">UserList</a>
 	<a href="LoginCtl?operation=logout">Logout</a>
 	
 	<a href="MarksheetCtl">Result</a>
