@@ -186,7 +186,7 @@ public class UserModel {
 
 		ResultSet rs = ps.executeQuery();
 
-		List<UserBean> l = new ArrayList();
+		List<UserBean> list = new ArrayList();
 
 		while (rs.next()) {
 			bean = new UserBean();
@@ -196,9 +196,9 @@ public class UserModel {
 			bean.setLogin(rs.getString(4));
 			bean.setPassword(rs.getString(5));
 			bean.setDob(rs.getDate(6));
-			l.add(bean);
+			list.add(bean);
 		}
-		return l;
+		return list;
 
 	}
 }

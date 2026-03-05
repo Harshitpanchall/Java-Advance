@@ -6,7 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>ORS-Project</title>
 </head>
-<body style="background-color: black;">
+<body>
 	<br>
 	<br>
 	<br>

@@ -46,7 +46,7 @@
 				</tr>
 				<tr>
 					<th></th>
-					<td><input type="submit" name="login" value="signIn">
+					<td><input type="submit" value = "signIn"></td>
 				</tr>
 
 			</table>
