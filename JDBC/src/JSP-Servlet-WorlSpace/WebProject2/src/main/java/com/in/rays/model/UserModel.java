@@ -12,31 +12,30 @@ import java.util.List;
 import com.in.rays.bean.UserBean;
 
 public class UserModel {
-	
+
 	public Integer nextPk() throws SQLException, ClassNotFoundException {
-		
+
 		int pk = 0;
-		
+
 		Class.forName("com.mysql.cj.jdbc.Driver");
 
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
 
 		PreparedStatement ps = conn.prepareStatement("select max(id) from st_user");
-		
+
 		ResultSet rs = ps.executeQuery();
-		
+
 		while (rs.next()) {
-		pk=	rs.getInt(1);
-			
+			pk = rs.getInt(1);
+
 		}
-		
-		return pk+1;
-		
-		
+
+		return pk + 1;
+
 	}
-	
+
 	public int add(UserBean bean) throws Exception {
-		
+
 		int pk = nextPk();
 
 		UserBean existBean = findByLogin(bean.getLogin());
@@ -182,7 +181,22 @@ public class UserModel {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
 
-		PreparedStatement ps = conn.prepareStatement("select * from st_user");
+		StringBuffer sql = new StringBuffer("select * from st_user where 1=1 ");
+		if (bean != null) {
+			if (bean.getFirstname() != null && bean.getFirstname().length() > 0) {
+				sql.append("and firstname like '" + bean.getFirstname() + "%'");
+
+			}
+
+			if (bean.getLastname() != null && bean.getLastname().length() > 0) {
+				sql.append("and lastname like '" + bean.getLastname() + "%'");
+
+			}
+		}
+
+		System.out.println("sql ===> String" + sql.toString());
+
+		PreparedStatement ps = conn.prepareStatement(sql.toString());
 
 		ResultSet rs = ps.executeQuery();
 

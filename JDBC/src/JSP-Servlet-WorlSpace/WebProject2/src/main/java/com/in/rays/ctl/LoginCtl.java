@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,9 +41,13 @@ public class LoginCtl extends HttpServlet {
 		String password = request.getParameter("password");
 
 		HttpSession session = request.getSession();
-
+          
 		try {
 			bean = model.authenticate(Login, password);
+//			Cookie c = new Cookie(Login, password);
+			Cookie c1 = new Cookie(bean.getLastname(), password);
+			response.addCookie(c1);
+			
 
 			if (bean != null) {
 				System.out.println("user login successfully");

@@ -19,8 +19,8 @@
 	%>
 
 	<h3 style="color: green;"><%="Hii, " + userBean.getFirstname()%></h3>
-	<a href = "UserCtl">AddUser</a>
-	<a href = "UserListCtl">UserList</a>
+	<a href = "UserCtl.do">AddUser</a>
+	<a href = "UserListCtl.do">UserList</a>
 	<a href="LoginCtl?operation=logout">Logout</a>
 	
 	<a href="MarksheetCtl">Result</a>
@@ -34,7 +34,7 @@
 
 	<a href="index.jsp">Home | </a>
 	<a href="LoginCtl">Login | </a>
-	<a href="UserRegistrationCtl">SignIn | </a>
+	<a href="UserRegistrationCtl">SignUp | </a>
 	<a href="WelcomeCtl">Welcome </a>
 	<hr>
 	<%

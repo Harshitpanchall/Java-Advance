@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Signin</title>
+<title>SignUp</title>
 </head>
 <body>
 	<%@ include file="Header.jsp"%>
